@@ -1,0 +1,25 @@
+---
+version: "3.9"
+services:
+
+  hangfire-container-dashboard:
+    image: ghcr.io/valorad/hangfire-container-dashboard:latest # Feel free to choose the tag you want
+    restart: always
+    volumes:
+      - /path/2/appsettings.Production.json:/workspace/www/hangfire-container/dashboard/appsettings.Production.json
+    networks:
+      - main
+
+  hangfire-container-server:
+    image: ghcr.io/valorad/hangfire-container-server:latest # Feel free to choose the tag you want
+    restart: always
+    volumes:
+      - /path/2/appsettings.Production.json:/workspace/www/hangfire-container/server/appsettings.Production.json
+    networks:
+      - main
+
+# Remember to create this docker network manually!
+networks:
+  main:
+    external:
+      name: main

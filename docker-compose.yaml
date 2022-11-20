@@ -1,0 +1,14 @@
+---
+
+version: "3.9"
+services:
+  dashboard:
+    build:
+      context: .
+      dockerfile: ./HangfireContainer.Dashboard/dockerfile
+    image: ghcr.io/valorad/hangfire-container-dashboard:latest
+  server:
+    build:
+      context: .
+      dockerfile: ./HangfireContainer.Server/dockerfile
+    image: ghcr.io/valorad/hangfire-container-server:latest
